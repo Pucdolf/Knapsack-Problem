@@ -1,0 +1,5 @@
+NAZWA               WAGA                CENA                
+Biurko              5                   120                 
+POJEMNOSC PLECAKA:  5
+ILOSC POKOLEN:      8
+ILOSC OSOBNIKOW W POKOLENIU: 1

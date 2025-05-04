@@ -1,0 +1,13 @@
+radio		8.0		50			
+klawiatura	9.0		120			
+myszka		5.2		400			
+sluchawki	7.6		399			
+monitor		14.0	1000	
+komputer	16.0	4500	
+laptop		13.1	2000	
+glosnik		17.0	600		
+telefon		7.1		699		
+pad			3.2		250		
+
+
+
