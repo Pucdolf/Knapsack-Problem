@@ -30,9 +30,8 @@ Plecak Projekt to aplikacja napisana w C++14, która wykorzystuje algorytm genet
 
 ## Technologie
 
-* **C++17**
+* **C++14**
 * **Visual Studio 2019/2022** (Microsoft Visual C++)
-* **CMake** (opcja wieloplatformowa)
 * **Doxygen**
 
 ## Instalacja
