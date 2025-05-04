@@ -1,114 +1,140 @@
-# Projekt Plecak
+# Plecak Projekt
 
-Profesjonalne repozytorium Git dla projektu rozwiązującego problem plecakowy (0/1 Knapsack) za pomocą algorytmu dynamicznego w C++.
-
----
+**Projekt:** Rozwiązywanie problemu plecakowego (0/1 knapsack) za pomocą algorytmu genetycznego w C++
 
 ## Spis treści
 
 * [Opis](#opis)
 * [Funkcjonalności](#funkcjonalności)
 * [Technologie](#technologie)
-* [Wymagania wstępne](#wymagania-wstępne)
 * [Instalacja](#instalacja)
+* [Budowanie](#budowanie)
 * [Użytkowanie](#użytkowanie)
-* [Struktura katalogów](#struktura-katalogów)
+* [Parametry](#parametry)
+* [Przykład](#przykład)
 * [Dokumentacja](#dokumentacja)
-* [Testy](#testy)
-* [Wkład](#wkład)
-* [Licencja](#licencja)
+* [Struktura projektu](#struktura-projektu)
 * [Kontakt](#kontakt)
-
----
 
 ## Opis
 
-Projekt „Plecak” to implementacja rozwiązania problemu plecakowego typu 0/1, opartego na algorytmie dynamicznego programowania. Aplikacja umożliwia wyznaczenie maksymalnej łącznej wartości przedmiotów mieszczących się w plecaku o zadanej pojemności.
+Plecak Projekt to aplikacja napisana w C++14, która wykorzystuje algorytm genetyczny do znajdowania przybliżonego rozwiązania problemu plecakowego (0/1 knapsack). Umożliwia dynamiczne konfigurowanie parametrów działania oraz wczytywanie danych z pliku.
 
 ## Funkcjonalności
 
-* Rozwiązanie problemu plecakowego 0/1 za pomocą dynamicznego programowania
-* Wczytywanie danych z pliku tekstowego lub z konsoli
-* Wizualizacja wartości optymalnego zbioru przedmiotów (raport tekstowy)
-* Możliwość kompilacji w konfiguracjach Debug oraz Release
+* **Algorytm genetyczny**: selekcja, krzyżowanie, mutacja
+* **Konfigurowalne parametry**: rozmiar populacji, liczba pokoleń, pojemność plecaka
+* **Wejście/Wyjście**: wczytywanie danych z pliku tekstowego, zapisywanie wyników do pliku
+* **Statystyki**: wyświetlanie najlepszego rozwiązania oraz statystyk algorytmu
+* **Dokumentacja**: generowana za pomocą Doxygen (plik `refman.pdf`)
 
 ## Technologie
 
-* C++17
-* Visual Studio 2022 (Platform Toolset v143)
-
-## Wymagania wstępne
-
-* System operacyjny: Windows 10 lub nowszy
-* Visual Studio 2022 z zainstalowanym modułem C++
+* **C++17**
+* **Visual Studio 2019/2022** (Microsoft Visual C++)
+* **CMake** (opcja wieloplatformowa)
+* **Doxygen**
 
 ## Instalacja
 
 1. Sklonuj repozytorium:
 
    ```bash
-   git clone https://github.com/<TwojeUżytkownik>/<repozytorium>.git
+   git clone https://github.com/Pucdolf/Knapsack-Problem.git
+   cd Knapsack-Problem
    ```
-2. Otwórz w Visual Studio plik `Plecak projekt.sln` znajdujący się w katalogu `Plecak projekt`.
-3. Wybierz konfigurację (Debug/Release) i zbuduj projekt (Build > Build Solution).
+2. Zainstaluj Visual Studio z komponentami C++.
 
 ## Użytkowanie
 
-Po zbudowaniu w trybie Release znajdziesz plik wykonywalny w `Plecak projekt/x64/Release/Plecak projekt.exe`.
-
-### Przykład uruchomienia
+Program wymaga podania pięciu przełączników:
 
 ```bash
-Plecak\x64\Release\Plecak projekt.exe <ścieżka_do_pliku_wejściowego> <pojemność_plecaka>
+./PlecakProjekt \
+  -i <ścieżka_do_pliku_z_danymi> \
+  -o <ścieżka_do_pliku_wynikowego> \
+  -p <pojemność_plecaka> \
+  -g <liczba_pokoleń> \
+  -n <rozmiar_populacji>
 ```
 
-#### Format pliku wejściowego
+## Parametry
+
+* `-i <ścieżka_do_pliku_z_danymi>`: plik z listą przedmiotów (np. `sklep2.txt`)
+* `-o <ścieżka_do_pliku_wynikowego>`: plik wyjściowy do zapisu najlepszego rozwiązania (np. `solutions.txt`)
+* `-p <pojemność_plecaka>`: maksymalna pojemność plecaka (float)
+* `-g <liczba_pokoleń>`: liczba generacji w algorytmie (int)
+* `-n <rozmiar_populacji>`: liczba osobników w populacji (int)
+
+## Budowanie
+
+### Visual Studio
+
+1. Otwórz folder `Plecak projekt` i plik `Plecak projekt.sln` w Visual Studio.
+2. Wybierz konfigurację (Debug/Release).
+3. Zbuduj projekt (Build → Build Solution).
+
+### Debugowanie w Visual Studio
+
+Jeśli korzystasz z Visual Studio i chcesz debugować program z argumentami:
+
+1. Otwórz właściwości projektu (prawy klik na projekt → **Properties**).
+2. Przejdź do **Configuration Properties** → **Debugging**.
+3. W polu **Command Arguments** wprowadź:
+
+   ```bash
+   -i <ścieżka_do_pliku_z_danymi> \
+   -o <ścieżka_do_pliku_wynikowego> \
+   -p <pojemność_plecaka> \
+   -g <liczba_pokoleń> \
+   -n <rozmiar_populacji>
+   ```
+4. Zastosuj zmiany i uruchom debugowanie (F5).
+
+## Przykład
+
+```bash
+./PlecakProjekt -i sklep2.txt -o solutions.txt -p 50 -g 200 -n 100
+```
+
+Wyjście przykładowe:
 
 ```
-<n> <W>
-w1 v1
-w2 v2
+Najlepsze rozwiązanie:
+Nazwa   Waga   Wartość
 ...
-w_n v_n
+Całkowita pojemność: 50
+Całkowita wartość: 1234
 ```
 
-* `n` – liczba przedmiotów
-* `W` – pojemność plecaka
-* `w_i` – waga i-tego przedmiotu
-* `v_i` – wartość i-tego przedmiotu
-
-## Struktura katalogów
-
-```
-Plecak projekt/
-├── Plecak projekt.sln       # Plik rozwiązania Visual Studio
-├── refman.pdf               # Szczegółowa dokumentacja
-├── x64/
-│   ├── Debug/               # Build Debug
-│   └── Release/             # Build Release (plik wykonywalny)
-└── src/                     # (opcjonalnie: katalog z kodem źródłowym)
-```
-
-> **Uwaga:** Jeżeli katalog `src/` nie istnieje, skorzystaj z widoku Solution Explorer w Visual Studio.
+[Przykładowy plik wynikowy znajduje się w `Plecak projekt/solutions.txt` w repozytorium.]
 
 ## Dokumentacja
 
-Pełna dokumentacja techniczna dostępna jest w pliku `refman.pdf`.
+Dokumentacja generowana za pomocą Doxygen znajduje się w pliku `refman.pdf` w głównym katalogu repozytorium.
 
-## Testy
+## Struktura projektu
 
-Brak zautomatyzowanych testów w tej wersji projektu. Zachęcamy do dodania testów jednostkowych.
-
-## Wkład
-
-Wnioski do projektu i zgłaszanie problemów prosimy kierować przez Issues na GitHubie. Pull requesty są mile widziane!
-
-## Licencja
-
-Projekt nie zawiera jeszcze pliku LICENSE. Dodaj plik z odpowiednią licencją (np. MIT, GPL) według potrzeb.
+```
+Knapsack-Problem/                # Główne repozytorium GitHub
+├── Plecak projekt/              # Visual Studio project folder
+│   ├── 8kB.txt                  # Przykładowy plik danych
+│   ├── Plecak projekt.vcxproj   # Projekt Visual Studio
+│   ├── Plecak projekt.vcxproj.filters # Filtry projektu
+│   ├── main.cpp                 # Główny plik źródłowy
+│   ├── plecak.cpp               # Implementacja klasy Plecak
+│   ├── plecak.h                 # Deklaracja klasy Plecak
+│   ├── przyklad.txt             # Przykładowe dane wejściowe
+│   ├── sklep1.txt               # Przykładowe dane sklepu 1
+│   ├── sklep2.txt               # Przykładowe dane sklepu 2
+│   └── solutions.txt            # Przykładowy plik wynikowy
+├── README.md                    # Ten plik z instrukcją
+├── .gitignore                   # Pliki ignorowane przez Git
+├── .gitattributes               # Atrybuty Git
+└── refman.pdf                   # Dokumentacja Doxygen
+```
 
 ## Kontakt
 
-* Autor: Imię Nazwisko
-* Email: [twoj.email@domena.com](mailto:twoj.email@domena.com)
-* Strona GitHub: [https://github.com/](https://github.com/)\<TwojeUżytkownik>
+* Autor: Pucdolf - Jakub ([jakub.jh@interia.pl](mailto:jakub.jh@interia.pl))
+* Repozytorium: [https://github.com/Pucdolf/Knapsack-Problem](https://github.com/Pucdolf/Knapsack-Problem)
