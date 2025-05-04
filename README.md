@@ -44,27 +44,6 @@ Plecak Projekt to aplikacja napisana w C++14, która wykorzystuje algorytm genet
    ```
 2. Zainstaluj Visual Studio z komponentami C++.
 
-## Użytkowanie
-
-Program wymaga podania pięciu przełączników:
-
-```bash
-./PlecakProjekt \
-  -i <ścieżka_do_pliku_z_danymi> \
-  -o <ścieżka_do_pliku_wynikowego> \
-  -p <pojemność_plecaka> \
-  -g <liczba_pokoleń> \
-  -n <rozmiar_populacji>
-```
-
-## Parametry
-
-* `-i <ścieżka_do_pliku_z_danymi>`: plik z listą przedmiotów (np. `sklep2.txt`)
-* `-o <ścieżka_do_pliku_wynikowego>`: plik wyjściowy do zapisu najlepszego rozwiązania (np. `solutions.txt`)
-* `-p <pojemność_plecaka>`: maksymalna pojemność plecaka (float)
-* `-g <liczba_pokoleń>`: liczba generacji w algorytmie (int)
-* `-n <rozmiar_populacji>`: liczba osobników w populacji (int)
-
 ## Budowanie
 
 ### Visual Studio
@@ -90,7 +69,60 @@ Jeśli korzystasz z Visual Studio i chcesz debugować program z argumentami:
    ```
 4. Zastosuj zmiany i uruchom debugowanie (F5).
 
+## Użytkowanie
+
+Program wymaga podania pięciu przełączników:
+
+```bash
+./PlecakProjekt \
+  -i <ścieżka_do_pliku_z_danymi> \
+  -o <ścieżka_do_pliku_wynikowego> \
+  -p <pojemność_plecaka> \
+  -g <liczba_pokoleń> \
+  -n <rozmiar_populacji>
+```
+
+## Parametry
+
+* `-i <ścieżka_do_pliku_z_danymi>`: plik z listą przedmiotów (np. `sklep2.txt`)
+* `-o <ścieżka_do_pliku_wynikowego>`: plik wyjściowy do zapisu najlepszego rozwiązania (np. `solutions.txt`)
+* `-p <pojemność_plecaka>`: maksymalna pojemność plecaka (float)
+* `-g <liczba_pokoleń>`: liczba generacji w algorytmie (int)
+* `-n <rozmiar_populacji>`: liczba osobników w populacji (int)
+
 ## Przykład
+
+### Format pliku wejściowego
+
+Plik wejściowy (`*.txt`) powinien mieć następujący format:
+
+```
+Nazwa   Waga   Cena
+Budzik  0.3    15
+Spodnie 0.7    50
+Aparat  0.5    900
+...
+```
+
+* Pierwszy wiersz to nagłówki kolumn (opcjonalne, ale zalecane).
+* Każdy kolejny wiersz zawiera:
+
+  * nazwę przedmiotu (bez spacji),
+  * wagę (liczba zmiennoprzecinkowa),
+  * wartość/cenę (liczba całkowita).
+
+Dane są oddzielone spacjami lub tabulacjami. Program ignoruje puste linie.
+
+Przykład zawartości pliku:
+
+```
+NAZWA       WAGA    CENA
+Budzik      0.3     15
+Spodnie     0.7     50
+Aparat      0.5     900
+Kosmetyki   1       40
+Pendrive    0.02    10
+```
 
 ```bash
 ./PlecakProjekt -i sklep2.txt -o solutions.txt -p 50 -g 200 -n 100
@@ -115,22 +147,22 @@ Dokumentacja generowana za pomocą Doxygen znajduje się w pliku `refman.pdf` w 
 ## Struktura projektu
 
 ```
-Knapsack-Problem/                # Główne repozytorium GitHub
-├── Plecak projekt/              # Visual Studio project folder
-│   ├── 8kB.txt                  # Przykładowy plik danych
-│   ├── Plecak projekt.vcxproj   # Projekt Visual Studio
+Knapsack-Problem/                      # Główne repozytorium GitHub
+├── Plecak projekt/                    # Visual Studio project folder
+│   ├── 8kB.txt                        # Przykładowy plik danych
+│   ├── Plecak projekt.vcxproj         # Projekt Visual Studio
 │   ├── Plecak projekt.vcxproj.filters # Filtry projektu
-│   ├── main.cpp                 # Główny plik źródłowy
-│   ├── plecak.cpp               # Implementacja klasy Plecak
-│   ├── plecak.h                 # Deklaracja klasy Plecak
-│   ├── przyklad.txt             # Przykładowe dane wejściowe
-│   ├── sklep1.txt               # Przykładowe dane sklepu 1
-│   ├── sklep2.txt               # Przykładowe dane sklepu 2
-│   └── solutions.txt            # Przykładowy plik wynikowy
-├── README.md                    # Ten plik z instrukcją
-├── .gitignore                   # Pliki ignorowane przez Git
-├── .gitattributes               # Atrybuty Git
-└── refman.pdf                   # Dokumentacja Doxygen
+│   ├── main.cpp                       # Główny plik źródłowy
+│   ├── plecak.cpp                     # Implementacja klasy Plecak
+│   ├── plecak.h                       # Deklaracja klasy Plecak
+│   ├── przyklad.txt                   # Przykładowe dane wejściowe
+│   ├── sklep1.txt                     # Przykładowe dane sklepu 1
+│   ├── sklep2.txt                     # Przykładowe dane sklepu 2
+│   └── solutions.txt                  # Przykładowy plik wynikowy
+├── README.md                          # Ten plik z instrukcją
+├── .gitignore                         # Pliki ignorowane przez Git
+├── .gitattributes                     # Atrybuty Git
+└── refman.pdf                         # Dokumentacja Doxygen
 ```
 
 ## Kontakt
