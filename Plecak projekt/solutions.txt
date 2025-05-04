@@ -1,5 +1,17 @@
 NAZWA               WAGA                CENA                
-Biurko              5                   120                 
-POJEMNOSC PLECAKA:  5
+Budzik              0.3                 15                  
+Spodnie             0.7                 50                  
+Spodnie             0.7                 50                  
+Aparat              0.5                 900                 
+Kosmetyki           1                   40                  
+Pendrive            0.02                10                  
+Bransoletka         0.1                 10                  
+Ladowarka           0.1                 25                  
+Aparat              0.5                 900                 
+Pendrive            0.02                10                  
+Pendrive            0.02                10                  
+Pendrive            0.02                10                  
+Pendrive            0.02                10                  
+POJEMNOSC PLECAKA:  4
 ILOSC POKOLEN:      8
 ILOSC OSOBNIKOW W POKOLENIU: 1

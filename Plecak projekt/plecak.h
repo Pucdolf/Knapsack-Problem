@@ -16,12 +16,12 @@
 */
 struct Params
 {
-	std::string itemsFile;
-	std::string solutionFile;
-	float capacity;
-	int generations;
-	int amountOfSpecimens;
-}zmienna;
+	std::string itemsFile = "";
+	std::string solutionFile = "";
+	float capacity = 0;
+	int generations = 0;
+	int amountOfSpecimens = 0;
+};
 
 /** \struct Item
  *\brief struktura przechowujaca dane z pliku powiazanego z przelacznikiem -i.
