@@ -44,6 +44,28 @@ Plecak Projekt to aplikacja napisana w C++14, która wykorzystuje algorytm genet
    ```
 2. Zainstaluj Visual Studio z komponentami C++.
 
+
+## Użytkowanie
+
+Program wymaga podania pięciu przełączników:
+
+```bash
+./PlecakProjekt \
+  -i <ścieżka_do_pliku_z_danymi> \
+  -o <ścieżka_do_pliku_wynikowego> \
+  -p <pojemność_plecaka> \
+  -g <liczba_pokoleń> \
+  -n <rozmiar_populacji>
+```
+
+## Parametry
+
+* `-i <ścieżka_do_pliku_z_danymi>`: plik z listą przedmiotów (np. `sklep2.txt`)
+* `-o <ścieżka_do_pliku_wynikowego>`: plik wyjściowy do zapisu najlepszego rozwiązania (np. `solutions.txt`)
+* `-p <pojemność_plecaka>`: maksymalna pojemność plecaka (float)
+* `-g <liczba_pokoleń>`: liczba generacji w algorytmie (int)
+* `-n <rozmiar_populacji>`: liczba osobników w populacji (int)
+
 ## Budowanie
 
 ### Visual Studio
@@ -68,27 +90,6 @@ Jeśli korzystasz z Visual Studio i chcesz debugować program z argumentami:
    -n <rozmiar_populacji>
    ```
 4. Zastosuj zmiany i uruchom debugowanie (F5).
-
-## Użytkowanie
-
-Program wymaga podania pięciu przełączników:
-
-```bash
-./PlecakProjekt \
-  -i <ścieżka_do_pliku_z_danymi> \
-  -o <ścieżka_do_pliku_wynikowego> \
-  -p <pojemność_plecaka> \
-  -g <liczba_pokoleń> \
-  -n <rozmiar_populacji>
-```
-
-## Parametry
-
-* `-i <ścieżka_do_pliku_z_danymi>`: plik z listą przedmiotów (np. `sklep2.txt`)
-* `-o <ścieżka_do_pliku_wynikowego>`: plik wyjściowy do zapisu najlepszego rozwiązania (np. `solutions.txt`)
-* `-p <pojemność_plecaka>`: maksymalna pojemność plecaka (float)
-* `-g <liczba_pokoleń>`: liczba generacji w algorytmie (int)
-* `-n <rozmiar_populacji>`: liczba osobników w populacji (int)
 
 ## Przykład
 
